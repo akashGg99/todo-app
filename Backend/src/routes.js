@@ -4,4 +4,6 @@ const router = express.Router()
 
 
 
-router.post('/createtask',createTask)
+router.post('/createtask',createTask);
+router.put('/createtask',createTask)
+
