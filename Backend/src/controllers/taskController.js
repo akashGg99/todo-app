@@ -11,7 +11,7 @@ const createTask = async function(req,res){
 }
 
 
-const editTask = async function(req,res){
+const updateTask = async function(req,res){
     try{
         const [Title,Description,Status]= req.body
 
@@ -22,5 +22,13 @@ const editTask = async function(req,res){
 }
 
 
+const getTaskList = async function(req,res){
+    try{
+        const taskList = await taskModel.find()
+         return res.status(200).send({status:true, message:"success", data:getTaskList})
+    }
+    catch(err){ return res.status(500).send({status:false, message:err.message}) }
+}
 
-module.exports = [createTask,editTask]
+
+module.exports = [createTask, updateTask, getTaskList]
